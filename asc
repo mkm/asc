@@ -1,3 +1,9 @@
 #!/bin/bash
 
-python2 main.py $@
+py=
+if [ ! "$py" ]
+then
+    py="./main.py"
+fi
+
+python2 "$py" $@
