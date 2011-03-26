@@ -1,6 +1,7 @@
 #!/bin/bash
 
-prefix=$1
+base=$1
+prefix=$2
 
 if [ ! "$prefix" ]
 then
@@ -9,6 +10,6 @@ then
 fi
 
 cat ./asc | sed "s#^py=\$#py=$prefix/lib/asc/main.py#" >./asc-path
-install -Dm755 ./asc-path "$prefix/bin/asc"
+install -Dm755 ./asc-path "$base/$prefix/bin/asc"
 rm ./asc-path
-install -Dm644 ./main.py "$prefix/lib/asc/main.py"
+install -Dm644 ./main.py "$base/$prefix/lib/asc/main.py"
